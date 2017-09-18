@@ -1,11 +1,13 @@
-Контракт работает в тестовой сети Kovan
-Адрес: 0x55eA517A0e1bD69F85b6e324efD15dc9Da29e2E6
+The contract is deployed at Kovan
+Address: 0x55eA517A0e1bD69F85b6e324efD15dc9Da29e2E6
 
-1. Получаем IPFS hash (ipfs add <file>)
-2. Конвертируем его в hex (fromipfshash.js)
-3. Добавляем новую запись в смарт-контракт (hash, sum, weight)
-4. Получаем ID, который находится в поле lastID
-5. Получаем данные из смарт-контракта с помощью getItem(ID)
-6. С помощью toipfshash.js получаем IPFS hash 
+Steps:
+1. Get IPFS hash (ipfs add <file>)
+2. Convert it to hex (fromipfshash.js <ipfshash>)
+3. Add new row to the smart-contract (hash, sum, weight)
+4. Get ID from `lastID` field
 
-В смарт-контракте можно было бы использовать тип данных string и хранить IPFS hash напрямую. Но в этом случае требуется гораздо больше газа, то есть вызов получается дорогой. Поэтому конвертируем в hex
+If you want to get a row from the smart-contract, use getItem(ID)
+To get IPFS hash, use toipfshash.js <hex>
+
+It's possible to store IPFS hash as a string, but it's more expensive than constants-length hex
